@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
 
 function Mode() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
@@ -12,10 +13,26 @@ function Mode() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-      {theme === 'dark' ? '🌙 Mode sombre' : '☀️ Mode clair'}
+      onClick={toggleTheme}
+      className="flex items-center justify-center gap-2 rounded-full p-2 text-gray-900 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+    >
+      {theme === 'dark' ? (
+        <>
+          <SunIcon className="h-6 w-6" />
+          <span className="text-sm font-medium">Mode clair</span>
+        </>
+      ) : (
+        <>
+          <MoonIcon className="h-6 w-6" />
+          <span className="text-sm font-medium">Mode sombre</span>
+        </>
+      )}
     </button>
   )
 }
