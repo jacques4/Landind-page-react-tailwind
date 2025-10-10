@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import {useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Mode from './Mode'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -16,9 +17,10 @@ function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   
   return (
- <div className="bg-gray-900">
+ <div className="px-3 py-1 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white font-semibold transition duration-300">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
+
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
@@ -41,15 +43,18 @@ function Navbar() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm/6 font-semibold text-white">
+              <a key={item.name} href={item.href} className="text-sm/6 font-semibold text-gray-900 dark:text-white">
                 {item.name}
               </a>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm/6 font-semibold text-white">
+           <Mode />
+          &nbsp; &nbsp;
+            <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
+            
           </div>
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -124,10 +129,11 @@ function Navbar() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">
+
+            <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-800 dark:text-white sm:text-7xl">
               Data to enrich your online business
             </h1>
-            <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
+            <p className="mt-8 text-lg font-medium text-pretty text-gray-700 dark:text-gray-400 sm:text-xl/8">
               Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
               fugiat veniam occaecat.
             </p>
@@ -138,7 +144,7 @@ function Navbar() {
               >
                 Get started
               </a>
-              <a href="#" className="text-sm/6 font-semibold text-white">
+              <a href="#" className="text-sm/6 font-semibold text-gray-800 dark:text-white">
                 Learn more <span aria-hidden="true">→</span>
               </a>
             </div>
