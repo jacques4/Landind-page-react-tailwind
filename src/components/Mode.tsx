@@ -25,12 +25,12 @@ function Mode() {
       {theme === 'dark' ? (
         <>
           <SunIcon className="h-6 w-6" />
-          <span className="text-sm font-medium">Mode clair</span>
+          <span className="text-sm font-medium"></span>
         </>
       ) : (
         <>
           <MoonIcon className="h-6 w-6" />
-          <span className="text-sm font-medium">Mode sombre</span>
+          <span className="text-sm font-medium"></span>
         </>
       )}
     </button>

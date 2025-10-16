@@ -4,6 +4,8 @@ import {useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Mode from './Mode'
+import { useNavigate } from "react-router-dom";
+
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -15,6 +17,7 @@ const navigation = [
 
 function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const navigate = useNavigate();
   
   return (
  <div className="px-3 py-1 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white font-semibold transition duration-300">
@@ -30,6 +33,7 @@ function Navbar() {
                 className="h-8 w-auto"
               />
             </a>
+            
           </div>
           <div className="flex lg:hidden">
             <button
@@ -51,10 +55,13 @@ function Navbar() {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
            <Mode />
           &nbsp; &nbsp;
-            <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
-            
+
+          <button    
+            onClick={() => navigate("/login")}
+          className="flex items-center justify-center gap-2 rounded-full p-2 text-gray-900 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+             Log in
+            </button>
+            &nbsp; &nbsp;          
           </div>
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">

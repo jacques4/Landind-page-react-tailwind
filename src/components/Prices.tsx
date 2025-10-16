@@ -59,8 +59,8 @@ function Prices() {
           <div
             key={tier.id}
             className={classNames(
-              tier.featured ? 'relative bg-gray-800 dark:bg-gray-700' : 'bg-white/5 dark:bg-gray-800 sm:mx-8 lg:mx-0',
-              tier.featured
+              tier.featured ? 'relative bg-gray-900 shadow-2xl dark:bg-gray-700' : 'bg-white/60 dark:bg-gray-800 sm:mx-8 lg:mx-0',
+              tier.featured  
                 ? ''
                 : tierIdx === 0
                   ? 'rounded-t-3xl sm:rounded-b-none lg:rounded-tr-none lg:rounded-bl-3xl'
@@ -71,7 +71,7 @@ function Prices() {
             <h3
               id={tier.id}
               className={classNames(
-                tier.featured ? 'text-indigo-400' : 'text-indigo-500 dark:text-indigo-400',
+                tier.featured ? 'text-indigo-400' : 'text-indigo-600 dark:text-indigo-400',
                 'text-base/7 font-semibold',
               )}
             >
@@ -90,7 +90,7 @@ function Prices() {
                 /month
               </span>
             </p>
-            <p className={classNames(tier.featured ? 'text-gray-300' : 'text-gray-700 dark:text-gray-300', 'mt-6 text-base/7')}>
+            <p className={classNames(tier.featured ? 'text-gray-300' : 'text-gray-600 dark:text-gray-300', 'mt-6 text-base/7')}>
               {tier.description}
             </p>
             <ul
@@ -113,18 +113,20 @@ function Prices() {
                 </li>
               ))}
             </ul>
-            <a
-              href={tier.href}
-              aria-describedby={tier.id}
-              className={classNames(
-                tier.featured
-                  ? 'bg-indigo-500 text-white hover:bg-indigo-400 focus-visible:outline-indigo-500'
-                  : 'bg-white/10 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-white/20 dark:hover:bg-gray-700 focus-visible:outline-white/75',
-                'mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10 transition-colors duration-300',
-              )}
-            >
-              Get started today
-            </a>
+<a
+  href={tier.href}
+  aria-describedby={tier.id}
+  className={classNames(
+    tier.featured
+      ? 'bg-indigo-500 text-white hover:bg-indigo-400 dark:bg-indigo-600 dark:hover:bg-indigo-500 focus-visible:outline-indigo-500'
+      : 'bg-white border border-indigo-500 text-indigo-500 hover:bg-indigo-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-600 focus-visible:outline-indigo-500',
+    'mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10'
+  )}
+>
+  Get started today
+</a>
+
+
           </div>
         ))}
       </div>
